@@ -7,10 +7,28 @@
 
         var productList = this;
         productList.products = [];
+        productList.ExpiryDate = new Date();
 
         $http.get('/api/product').then(function(res)
         {
             productList.products = res.data;
+            //$('#productTable').dataTable({
+            //    "data": res.data,
+            //    "columns": [
+            //        { "data": "Name" },
+            //        { "data": "Description" },
+            //        { "data": "Amount" },
+            //        { "data": "IsActive" },
+            //        { "data": "ExpiryDate" },
+            //        {
+            //            "render": function () {
+            //                return "<button type='button' class='btn btn-sm btn-primary' id='Edit'>Edit</button>"
+            //                //return "<button type='button' class='btn btn - sm btn - primary' ng-click='productList.productDetails($index)'>Edit</button> | < button type = 'button' class='btn btn-sm btn-danger' ng-click='productList.deleteProduct($index)'> Delete</button >"
+            //            }
+            //        }
+            //    ]
+            //});
+            
         });
 
         productList.newProduct = function () {
@@ -28,8 +46,7 @@
             productList.Description = productList.products[index].Description;
             productList.Amount = productList.products[index].Amount;
             productList.IsActive = productList.products[index].IsActive;
-            productList.ExpiryDate = productList.products[index].ExpiryDate;
-            console.log(productList.products[index].ExpiryDate, index);
+            productList.ExpiryDate = new Date(productList.products[index].ExpiryDate);
         }
 
         productList.handleSubmit = function(index) {
@@ -49,6 +66,7 @@
                 IsActive: true
             });
 
+            console.log(productList.products, "array")
             //api insert
             $http.post('/api/product', productList.products[productList.products.length - 1]).then(function() {
                 productList.clearFields();
@@ -88,24 +106,5 @@
             productList.Description = '';
             productList.Amount = '';
             productList.ExpiryDate = null;
-        }
-
-        productList.remaining = function () {
-            var count = 0;
-            angular.forEach(productList.products, function (Product) {
-                count += Product.done ? 0 : 1;
-            });
-            return count;
-        };
-
-        productList.archive = function () {
-            var popup = confirm("Are your sure to delete selected items?");
-            if (popup == false) return;
-
-            var oldProducts = productList.products;
-            productList.products = [];
-            angular.forEach(oldProducts, function (Product) {
-                if (!Product.done) productList.products.push(Product);
-            });
-        };
+        } 
     });

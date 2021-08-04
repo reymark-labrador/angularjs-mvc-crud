@@ -88,4 +88,3 @@ D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.Http.WebHost.dll
 D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Net.Http.Formatting.xml
 D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.Http.xml
 D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.Http.WebHost.xml
-D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.AssemblyReference.cache
