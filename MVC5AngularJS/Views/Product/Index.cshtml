@@ -1,0 +1,66 @@
+﻿<div>
+    <div ng-controller="ProductListController as productList">
+        @*<span>{{productList.remaining()}} of {{productList.products.length}} remaining</span>
+        [ <a href="" ng-click="productList.archive()">archive</a> ]
+        <form ng-submit="productList.addProduct()">
+            <input type="text" ng-model="productList.name" size="30" placeholder="Name" /><br />
+            <input type="text" ng-model="productList.description" size="30" placeholder="Description" /><br />
+            <input type="text" ng-model="productList.amount" size="30" placeholder="Amount" /><br />
+            <input type="date" ng-model="productList.expiryDate" /><br />
+            <input class="btn-primary" type="submit" value="add" />
+        </form>*@
+        <h1>Products</h1>
+        <button type="button" ng-click="productList.newProduct()" class="btn btn-primary">Create Product</button>
+        <div class="py-5">
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Expiry Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="Product in productList.products" ng-dblclick="productList.productDetails($index)">
+                        <td>{{ Product.name }}</td>
+                        <td>{{ Product.description }}</td>
+                        <td>{{ Product.amount }}</td>
+                        <td>{{ Product.expiryDate }}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="productList.productDetails($index)">Edit</button> |
+                            <button type="button" class="btn btn-sm btn-danger" ng-click="productList.deleteProduct($index)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ productList.modalTitle }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" ng-model="productList.name" size="30" placeholder="Name" /><br />
+                        <input type="text" ng-model="productList.description" size="30" placeholder="Description" /><br />
+                        <input type="text" ng-model="productList.amount" size="30" placeholder="Amount" /><br />
+                        <input type="date" ng-model="productList.expiryDate" /><br />
+                        <input class="btn-primary" type="submit" value="add" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="productList.handleSubmit()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="~/AngularApp/Product.js"></script>
+}
