@@ -1,30 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.ModelBinding;
+using MVC5AngularJS.Data;
+using MVC5AngularJS.Models;
 
 namespace MVC5AngularJS.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : ApiController
     {
-        public ActionResult Index()
+        private AppDbContext db = new AppDbContext();
+
+        [HttpGet]
+        public async Task<IEnumerable<ProductModel>> Get()
         {
-            return View();
+            return await db.Products.ToListAsync();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public async Task<HttpResponseMessage> Post([FromBody] ProductModel product)
         {
-            ViewBag.Message = "Your application description page.";
+            if (ModelState.IsValid)
+            {
+                db.Products.Add(product);
+                await db.SaveChangesAsync();
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, product);
+                return response;
+            }
 
-            return View();
+            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
         }
 
-        public ActionResult Contact()
+        [HttpPut]
+        public async Task<HttpResponseMessage> Put([FromBody] ProductModel product)
         {
-            ViewBag.Message = "Your contact page.";
+            if (ModelState.IsValid)
+            {
+                db.Entry(product).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, product);
+                return response;
+            }
 
-            return View();
+            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+        }
+
+        [HttpDelete]
+        public async Task<HttpResponseMessage> Delete(int id)
+        {
+            ProductModel product = db.Products.Find(id);
+
+            if (product == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            db.Products.Remove(product);
+            await db.SaveChangesAsync();
+            return Request.CreateResponse(HttpStatusCode.OK, product);
         }
     }
 }

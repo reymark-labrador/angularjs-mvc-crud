@@ -76,3 +76,16 @@ D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.CoreCompileI
 D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.CopyComplete
 D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.dll
 D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.pdb
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\EntityFramework.dll
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\EntityFramework.SqlServer.dll
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\EntityFramework.xml
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\EntityFramework.SqlServer.xml
+D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.Migrations.InitialCreate.resources
+D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.GenerateResource.cache
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Net.Http.Formatting.dll
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.Http.dll
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.Http.WebHost.dll
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Net.Http.Formatting.xml
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.Http.xml
+D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.Http.WebHost.xml
+D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.AssemblyReference.cache
