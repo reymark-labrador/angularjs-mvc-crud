@@ -8,6 +8,8 @@
         var productList = this;
         productList.products = [];
         productList.ExpiryDate = new Date();
+        productList.Name = "";
+        productList.Description = "";
 
         //validate auth token
         if ($window.localStorage.getItem('auth-token') != null) {
@@ -18,7 +20,6 @@
                     'token': $window.localStorage.getItem('auth-token')
                 }
             }).then(function (res) {
-                console.log(res)
                 if (!res.data) {
                     $window.location.href = '/page/login';
                 }
@@ -83,15 +84,26 @@
         }
 
         productList.addProduct = function () {
+            
+            if (productList.Name == "") return;
+            if (productList.Description == "") return;
+            if (productList.ExpiryDate == null) return;
+
+            productList.products.push({
+                Name: productList.Name,
+                Description: productList.Description,
+                Amount: productList.Amount,
+                ExpiryDate: productList.ExpiryDate,
+                IsActive: productList.IsActive
+            });
+
             //api insert
-            $http.post('/api/product', productList.products[productList.products.length - 1]).then(function () {
-                productList.products.push({
-                    Name: productList.Name,
-                    Description: productList.Description,
-                    Amount: productList.Amount,
-                    ExpiryDate: productList.ExpiryDate,
-                    IsActive: true
-                });
+            $http({
+                method: 'Post',
+                url: '/api/product',
+                headers: { 'authorization': 'Bearer  ' + $window.localStorage.getItem('auth-token') },
+                data: productList.products[productList.products.length - 1]
+            }).then(function (res) {
                 productList.clearFields();
                 $('#productModal').modal('hide');
             });
@@ -99,14 +111,23 @@
 
         productList.updateProduct = function () {
             const index = productList.index;
-            
+            if (productList.Name == "") return;
+            if (productList.Description == "") return;
+            if (productList.ExpiryDate == null) return;
+
+            productList.products[index].Name = productList.Name;
+            productList.products[index].Description = productList.Description;
+            productList.products[index].Amount = productList.Amount;
+            productList.products[index].ExpiryDate = productList.ExpiryDate;
+            productList.products[index].IsActive = productList.IsActive;
+
             //api update
-            $http.put('/api/product', productList.products[index]).then(function () {
-                productList.products[index].Name = productList.Name;
-                productList.products[index].Description = productList.Description;
-                productList.products[index].Amount = productList.Amount;
-                productList.products[index].ExpiryDate = productList.ExpiryDate;
-                productList.products[index].IsActive = productList.IsActive;
+            $http({
+                method: 'Put',
+                url: '/api/product',
+                headers: { 'authorization': 'Bearer  ' + $window.localStorage.getItem('auth-token') },
+                data: productList.products[index]
+            }).then(function (res) {
                 productList.clearFields();
                 $('#productModal').modal('hide');
             });
@@ -116,8 +137,11 @@
             var popup = confirm("Are your sure to delete " + productList.products[index].name + "?" );
             if (popup == false) return;
 
-            //api delete
-            $http.delete('/api/product/' + productList.products[index].ID).then(function () {
+            $http({
+                method: 'Delete',
+                url: '/api/product/' + productList.products[index].ID,
+                headers: { 'authorization': 'Bearer  ' + $window.localStorage.getItem('auth-token') }
+            }).then(function (res) {
                 productList.products.splice(index, 1);
             });
         }

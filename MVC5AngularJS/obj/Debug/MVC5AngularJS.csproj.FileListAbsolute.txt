@@ -94,9 +94,9 @@ D:\codes\MVC5AngularJS\MVC5AngularJS\bin\System.Web.WebPages.Razor.xml
 D:\codes\MVC5AngularJS\MVC5AngularJS\bin\Newtonsoft.Json.xml
 D:\codes\MVC5AngularJS\MVC5AngularJS\bin\Antlr3.Runtime.pdb
 D:\codes\MVC5AngularJS\MVC5AngularJS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.Migrations.InitialCreate.resources
-D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.GenerateResource.cache
 D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.CoreCompileInputs.cache
 D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.CopyComplete
 D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.dll
 D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.pdb
+D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.Migrations.InitialCreate.resources
+D:\codes\MVC5AngularJS\MVC5AngularJS\obj\Debug\MVC5AngularJS.csproj.GenerateResource.cache

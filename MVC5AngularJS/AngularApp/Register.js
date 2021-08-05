@@ -2,6 +2,9 @@
     .controller('RegisterController', function ($http, $window) {
  
         var registerControl = this;
+        registerControl.Name = "";
+        registerControl.Email = "";
+        registerControl.Password = "";
 
         //validate auth token
         if ($window.localStorage.getItem('auth-token') != null) {
@@ -19,6 +22,11 @@
         }
 
         registerControl.handleSignup = function () {
+            console.log(registerControl.Name)
+            if (registerControl.Name == "") return;
+            if (registerControl.Email == "") return;
+            if (registerControl.Password == "") return;
+
             $http({
                 method: 'Post',
                 url: '/api/auth/register',

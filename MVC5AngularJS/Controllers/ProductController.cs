@@ -26,6 +26,7 @@ namespace MVC5AngularJS.Controllers
         }
 
         [HttpPost]
+        [CustomAuthenticationFilter]
         public async Task<HttpResponseMessage> Post([FromBody] ProductModel product)
         {
             if (ModelState.IsValid)
@@ -40,6 +41,7 @@ namespace MVC5AngularJS.Controllers
         }
 
         [HttpPut]
+        [CustomAuthenticationFilter]
         public async Task<HttpResponseMessage> Put([FromBody] ProductModel product)
         {
             if (ModelState.IsValid)
@@ -54,6 +56,7 @@ namespace MVC5AngularJS.Controllers
         }
 
         [HttpDelete]
+        [CustomAuthenticationFilter]
         public async Task<HttpResponseMessage> Delete(int id)
         {
             ProductModel product = db.Products.Find(id);

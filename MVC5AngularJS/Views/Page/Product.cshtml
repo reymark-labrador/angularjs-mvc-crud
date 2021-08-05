@@ -55,6 +55,10 @@
                         <input type="date" class="form-control" ng-model="productList.ExpiryDate" /><br />
                         <input type="checkbox" ng-model="productList.IsActive" />
                         <label class="form-label">Is Active</label>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            The following fields are required.
+                            <strong>Name, Description, Amount and Expiry date.</strong>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

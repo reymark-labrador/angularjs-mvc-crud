@@ -13,7 +13,7 @@ namespace MVC5AngularJS.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202108050909062_InitialCreate"; }
+            get { return "202108051438322_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
