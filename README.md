@@ -1,4 +1,4 @@
-# asp-mvc-crud
+# angularjs-mvc-crud
 1. Update your connection settings in Web.config
    ```sh
     <connectionStrings>
