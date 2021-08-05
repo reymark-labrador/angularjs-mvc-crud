@@ -14,8 +14,8 @@ namespace MVC5AngularJS
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                      "~/Scripts/angular.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+            //          "~/Scripts/angular.js"));
         }
     }
 }

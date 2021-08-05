@@ -19,6 +19,7 @@ namespace MVC5AngularJS.Controllers
         private AppDbContext db = new AppDbContext();
 
         [HttpGet]
+        [CustomAuthenticationFilter]
         public async Task<IEnumerable<ProductModel>> Get()
         {
             return await db.Products.ToListAsync();

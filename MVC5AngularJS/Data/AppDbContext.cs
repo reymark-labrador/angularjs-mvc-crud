@@ -9,5 +9,6 @@ namespace MVC5AngularJS.Data
         public AppDbContext() : base("StringDbContext") { }
 
         public DbSet<ProductModel> Products { get; set; }
+        public DbSet<UserModel> Users { get; set; }
     }
 }

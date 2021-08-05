@@ -1,0 +1,16 @@
+﻿<div ng-controller="RegisterController as registerControl">
+    <h1>Registration</h1>
+    <form ng-submit="registerControl.handleSignup()">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" ng-model="registerControl.Name" placeholder="Name" /><br />
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" ng-model="registerControl.Email" placeholder="Email" /><br />
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" ng-model="registerControl.Password" placeholder="Password" /><br />
+        <button type="submit" class="btn btn-primary">Signup</button>
+    </form>
+</div>
+
+@section scripts{
+    <script src="~/AngularApp/Register.js"></script>
+}

@@ -1,0 +1,30 @@
+﻿<div ng-controller="LoginController as loginControl">
+    <h1>Login</h1>
+    <form ng-submit="loginControl.handleLogin()">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" ng-model="loginControl.Email" placeholder="Email" /><br />
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" ng-model="loginControl.Password" placeholder="Password" /><br />
+        <button type="submit" class="btn btn-primary">Login</button> | <a href="/page/register">Register</a>
+    </form>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ productList.modalTitle }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Email or Password is incorrect.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/AngularApp/Login.js"></script>
+}

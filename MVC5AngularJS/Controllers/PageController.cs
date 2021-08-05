@@ -8,7 +8,17 @@ namespace MVC5AngularJS.Controllers
 {
     public class PageController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Product()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
         {
             return View();
         }

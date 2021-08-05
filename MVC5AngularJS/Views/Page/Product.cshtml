@@ -1,7 +1,11 @@
 ﻿<div>
     <div ng-controller="ProductListController as productList">
         <h1>Products</h1>
-        <button type="button" ng-click="productList.newProduct()" class="btn btn-primary">Create Product</button>
+        <div class="d-flex justify-content-between">
+            <button type="button" ng-click="productList.newProduct()" class="btn btn-primary ">Create Product</button>
+            <button type="button" ng-click="productList.logout()" class="btn btn-danger btn-sm mr-auto">Logout</button>
+        </div>
+        
         <div class="py-5">
             <table id="productTable">
                 <thead>
