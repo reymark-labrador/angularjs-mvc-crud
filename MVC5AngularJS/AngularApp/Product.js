@@ -104,6 +104,7 @@
                 headers: { 'authorization': 'Bearer  ' + $window.localStorage.getItem('auth-token') },
                 data: productList.products[productList.products.length - 1]
             }).then(function (res) {
+                productList.products[productList.products.length - 1].ID = res.data.ID;
                 productList.clearFields();
                 $('#productModal').modal('hide');
             });
@@ -134,7 +135,7 @@
         }
 
         productList.deleteProduct = function (index) {
-            var popup = confirm("Are your sure to delete " + productList.products[index].name + "?" );
+            var popup = confirm("Are your sure to delete " + productList.products[index].Name + "?" );
             if (popup == false) return;
 
             $http({
@@ -150,6 +151,7 @@
             productList.Name = '';
             productList.Description = '';
             productList.Amount = '';
+            productList.IsActive = false;
             productList.ExpiryDate = null;
         }
 
